@@ -54,6 +54,11 @@ d3.json("rrrr.json", function(error, graph) {
 
   node.append("title")
       .text(function(d) { return d.name; })
+  
+ node.append("text")
+      .attr("dy", ".3em")
+      .style("text-anchor", "middle")
+      .text(function(d) { return d.name.substring(0, d.r / 3); });
 
 force.on("tick", function() {
     link.attr("x1", function(d) { return d.source.x; })
